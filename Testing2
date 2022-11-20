@@ -1,0 +1,133 @@
+local wanteditem = "TSpear"
+ 
+----------^^^^PUT YOUR WANTED ITEM HERE, IT HAS TO BE THE FILE NAME LIKE "DEFStim" (I4S-DS)^^^^
+----------IF YOU ARE CONFUSED ABOUT ITEM NAMES AND NEED TO GRAB ONE, USE THE ESP PROVIDED IN THE YOUTUBE VIDEO OR USE DEX TO FIND THEM
+ 
+local lp = game.Players.LocalPlayer
+local gui = lp.PlayerGui
+local rs = game.ReplicatedStorage
+local ms = lp:GetMouse()
+ 
+ 
+local active = true
+_G.Code1 = nil;
+_G.Code2 = nil;
+ 
+local function GrabMainScript()
+    local Script = nil
+    for i,v in pairs(game.Players.LocalPlayer.Backpack.GetChildren(game.Players.LocalPlayer.Backpack)) do
+        if v:IsA("LocalScript") and v.Name ~= "ClickDetectorScript" then
+            Script = v
+        end
+    end
+    return Script
+end
+ 
+local function GrabEssentials()
+    local FunnyPlace = getrenv()._G
+    local TempEnv = getsenv(GrabMainScript())
+    repeat
+        FunnyPlace = getrenv()._G
+        TempEnv = getsenv(GrabMainScript())
+        wait(0.3)
+    until FunnyPlace["keylist"] ~= nil and TempEnv["afflictstatus"] ~= nil
+    wait(1)
+    if TempEnv["afflictstatus"] ~= nil then
+        local upvalues = getupvalues(TempEnv.afflictstatus)
+        for i,v in pairs(upvalues) do
+            if _G.Code1 ~= nil then
+                break
+            end
+            if typeof(v) == "number" then
+                for x,y in pairs(FunnyPlace) do
+                    if y == v then
+                        _G.Code1 = v
+                        break
+                    end
+                end
+            end
+        end
+        local CorrectIndex = math.huge
+        for i,v in pairs(upvalues) do
+            if v == _G.Code1 and tonumber(i) ~= nil then
+                CorrectIndex = i + 1
+            end
+            if i == CorrectIndex then
+                _G.Code2 = v
+            end
+        end
+    end
+    TempEnv = nil
+    FunnyPlace = nil
+end
+GrabMainScript()
+GrabEssentials()
+if workspace:FindFirstChild("ServerKey") then
+    else
+local sid = Instance.new("NumberValue",workspace)
+sid.Name = "ServerKey"
+sid.Value = _G.Code1
+ 
+local pid = Instance.new("NumberValue",workspace)
+pid.Name = "PlayerKey"
+pid.Value = _G.Code2
+end
+local directory = "Interactables"
+if workspace.Interactables:FindFirstChild("Workbench") then
+    else
+        directory = "InteractablesNoDel"
+        if workspace[directory]:FindFirstChild("Personal Workbench") then
+            local args = {
+        [1] = workspace[directory]["Personal Workbench"],
+    [2] = "buybaseupgrade",
+    [3] = _G.Code1,
+}
+ 
+game:GetService("ReplicatedStorage").Interactables.interaction:FireServer(unpack(args))
+        wait(5)
+        end
+        end
+local args = {
+    [1] = workspace[directory].Workbench,
+    [2] = "workbenchblueprint" .. wanteditem,
+    [3] = _G.Code1,
+}
+ 
+game:GetService("ReplicatedStorage").Interactables.interaction:FireServer(unpack(args))
+ game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "spawning " .. wanteditem, 
+	Text = "please wait", 
+})
+wait(3)
+ game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "almost done", 
+	Text = "as soon as you teleport, press e immediately. unless your in a private server", 
+})
+local args = {
+    [1] = workspace[directory].Workbench,
+    [2] = "workbench",
+    [3] = _G.Code1,
+}
+ 
+game:GetService("ReplicatedStorage").Interactables.interaction:FireServer(unpack(args))
+ 
+wait(7)
+local ogcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.WeaponDrops[wanteditem].JointGrip.CFrame
+local cantp = true
+workspace.WeaponDrops.ChildRemoved:Connect(function(child)
+    if child.Name == wanteditem then
+    if cantp == true then
+    cantp = false
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = ogcf
+    end
+    end
+end)
+workspace.CurrentCamera.ChildAdded:Connect(function(idiot)
+    spawn(function()
+        wait(2)
+    if idiot:IsA("BasePart") then
+        idiot:Destroy()
+    end
+    end)
+end)
