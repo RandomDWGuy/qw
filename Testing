@@ -32,6 +32,11 @@ ItemSection:NewButton("DeciHammer", "Let's be Rayzen!", function()
 end)
 
 
+ItemSection:NewButton("SpearTier3", "Omg, Tier3?!.", function()
+    loadstring(game:HttpGet(('https://github.com/RandomDWGuy/qw/blob/main/Testing2')))()
+end)
+
+
 ItemSection:NewButton("AdvandMed", "I guess I4S better.", function()
     loadstring(game:HttpGet(('https://pastebin.com/raw/tLY95C6q')))()
 end)
