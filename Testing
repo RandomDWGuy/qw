@@ -1,0 +1,132 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("DW/UMG Hub [ALPHATEST]", "GrapeTheme")
+
+
+--Main
+local Main = Window:NewTab("DWMain")
+local MainSection = Main:NewSection("DW")
+
+
+MainSection:NewButton("Godwill", "Simple script, Wanna team kill?", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Aidez/decaying_winter/main/GOODWILL_COMMAND_SCRIPT'),true))()
+end)
+
+
+MainSection:NewButton("Became SledgeQueen!", "Simp? I don't know you are or not, But I don't...", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/s9eURmiU')))()
+end)
+
+
+--Items
+local Item = Window:NewTab("Item")
+local ItemSection = Item:NewSection("Item")
+
+
+ItemSection:NewButton("KSG", "Boom! Shotgun!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/PC1jLMcd')))()
+end)
+
+
+ItemSection:NewButton("DeciHammer", "Let's be Rayzen!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/VYKhvSpx')))()
+end)
+
+
+ItemSection:NewButton("AdvandMed", "I guess I4S better.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/tLY95C6q')))()
+end)
+
+
+ItemSection:NewButton("GreenStim(I4S)", "Yeah, This one is best heal item!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/cTXW8rz7')))()
+end)
+
+
+ItemSection:NewButton("ClawGang!", "So fucking low damage But so cool is became Sickler!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/RKk2aVkQ')))()
+end)
+
+
+ItemSection:NewButton("BiliHook", "Spear stun, Op item.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/NBa9VKfT')))()
+end)
+
+
+ItemSection:NewButton("TAC", "Shiled, and Uhhh Shiled.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/JqeaS5hp')))()
+end)
+
+
+ItemSection:NewButton("S44 (Blue Stim)", "Jabing is so good If you poke me. Kinda sus ngl.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/SY32RB3p')))()
+end)
+
+
+ItemSection:NewButton("Backpack (BPK)", "Survival Perk?!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/sT8gLGqL')))()
+end)
+
+
+ItemSection:NewButton("ExeSword", "You know Zealot Void? Guhh! If you don't. Be death!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/kaVuXEZZ')))()
+end)
+
+
+ItemSection:NewButton("Bl1 (OrangeStim)", "Warning, Agent on your team is down.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/cTc83Z6T')))()
+end)
+
+
+ItemSection:NewButton("Hunting Axe", "So trash, Don't mind it", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/2UjYR0Dp')))()
+end)
+
+
+--Music section
+local Music = Window:NewTab("Music")
+local MusicSection = Music:NewSection("Music")
+
+
+MusicSection:NewButton("Boneyard", "wave 11", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/XixHHwgt')))()
+end)
+
+
+MusicSection:NewButton("Zealot", "Zealot void, Brrrrr!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/bLJWdddX')))()
+end)
+
+
+MusicSection:NewButton("SledgeQueen(Holdout)", "Omg, you fucking simp!!!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/1TDhD39m')))()
+end)
+
+
+MusicSection:NewButton("Medieval", "Commander! Get rekt!!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/S8XFGUut')))()
+end)
+
+
+MusicSection:NewButton("Enemy", "Oh the mistery.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/Mn3BB6yq')))()
+end)
+
+
+MusicSection:NewButton("Rhyer", "eh.", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/T8P4XH0K')))()
+end)
+
+
+--MainUMG you should not use this one on umg:r cuz it can getting ban. I warn you yet.
+local UMG = Window:NewTab("UMGMain")
+local UMGSection = UMG:NewSection("UMG")
+
+
+UMGSection:NewSlider("Walkspeed", "You think what are you gonna be? The flash? Alright better than be dream", 500, 16, function(s) -- 500 (MaxValue) | 16(0) (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+UMGSection:NewButton("ESP", "I see you! Get real!!", function()
+    loadstring(game:HttpGet(('https://pastebin.com/raw/UDU4AKTf')))()
+end)
